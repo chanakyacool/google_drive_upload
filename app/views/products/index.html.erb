@@ -1,0 +1,29 @@
+<h1>Listing products</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Photo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @products.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+    <td><img src="https://drive.google.com/file/d/0B1HyREFfKPGMTTdDOGZ1eFl5aHc/#{product.id}_{product.photo}"></td>
+    <td><%= link_to 'Show', product %></td>
+    <td><%= link_to 'Edit', edit_product_path(product) %></td>
+    <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <hr>
+  <b><%= product.photo.url(:original) %></b>
+<hr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Product', new_product_path %>
+https://drive.google.com/file/d/0B1HyREFfKPGMTTdDOGZ1eFl5aHc/edit?usp=sharing
